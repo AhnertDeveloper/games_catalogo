@@ -34,8 +34,18 @@
         <div class="form-group">
             <label for="image">Imagens</label><br>
             @if($images && count($images))
+                <div class="mb-2">
                 @foreach($images as $img)
-                    <img src="{{ asset('storage/' . ltrim($img->image, '/')) }}" alt="{{ $game->name }}" class="img-fluid mb-2" style="max-width:100%;margin-bottom:8px;">                @endforeach
+                    <div style="display:inline-block; margin-right:10px; position:relative;">
+                        <img src="{{ asset('storage/' . ltrim($img->image, '/')) }}" alt="{{ $game->name }}" class="img-fluid mb-2" style="max-width:120px; max-height:120px; display:block;">
+                        <form action="{{ route('games.images.destroy', ['game' => $game->id, 'image' => $img->id]) }}" method="POST" style="position:absolute; top:0; right:0;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja apagar esta imagem?')">&times;</button>
+                        </form>
+                    </div>
+                @endforeach
+                </div>
             @else
                 <span class="text-muted">Sem imagem</span>
             @endif

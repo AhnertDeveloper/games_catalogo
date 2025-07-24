@@ -34,7 +34,7 @@
                         @endif
                     </td>
                     <td>{{ $game->name }}</td>
-                    <td>{{ $game->genre }} sss</td>
+                    <td>{{ $game->genre }}</td>
                     <td>{{ $game->release_date ? date('d/m/Y', strtotime($game->release_date)) : '-' }}</td>
                     <td>
                         <a href="{{ route('games.show', $game->id) }}" class="btn btn-info btn-sm">Ver</a>

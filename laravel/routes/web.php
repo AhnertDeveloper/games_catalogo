@@ -21,3 +21,4 @@ Route::get('/', function () {
 
 
 Route::resource('games', 'GameController');
+Route::delete('games/{game}/images/{image}', 'GameController@destroyImage')->name('games.images.destroy');

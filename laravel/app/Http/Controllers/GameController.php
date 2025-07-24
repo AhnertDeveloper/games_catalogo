@@ -137,4 +137,22 @@ class GameController extends Controller
         $game->delete();
         return redirect()->route('games.index')->with('success', 'Game excluído com sucesso!');
     }
+
+    /**
+     * Remove uma imagem específica de um game.
+     *
+     * @param  int  $gameId
+     * @param  int  $imageId
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroyImage($gameId, $imageId)
+    {
+        $image = GameImage::where('game_id', $gameId)->where('id', $imageId)->firstOrFail();
+        // Remove o arquivo físico
+        if (Storage::disk('public')->exists($image->image)) {
+            Storage::disk('public')->delete($image->image);
+        }
+        $image->delete();
+        return redirect()->back()->with('success', 'Imagem removida com sucesso!');
+    }
 }

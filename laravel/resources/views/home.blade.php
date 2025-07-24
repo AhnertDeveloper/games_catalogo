@@ -9,7 +9,7 @@
                 <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
                     <div class="d-flex justify-content-center">
                         @if($game->images && count($game->images))
-                            <img src="{{ asset('storage/' . ltrim($game->images->first()->image, '/')) }}" class="d-block" alt="{{ $game->name }}" style="max-height: 250px;">
+                            <img src="{{ asset('storage/' . ltrim($game->images->first()->image, '/')) }}" class="card-img-top" alt="{{ $game->name }}" style="max-height: 360px; object-fit: cover;">
                         @else
                             <span class="text-muted">Sem imagem</span>
                         @endif
