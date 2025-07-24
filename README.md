@@ -15,6 +15,8 @@ Este projeto é um catálogo de games desenvolvido em Laravel, com upload e exib
 
    ```bash
    git clone https://github.com/AhnertDeveloper/games_catalogo
+   ```
+   ```bash
    cd games_catalogo/catalogo
    ```
 
