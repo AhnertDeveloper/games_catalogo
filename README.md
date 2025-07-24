@@ -14,7 +14,7 @@ Este projeto é um catálogo de games desenvolvido em Laravel, com upload e exib
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/games_catalogo.git
+   git clone https://github.com/AhnertDeveloper/games_catalogo
    cd games_catalogo/catalogo
    ```
 
@@ -79,9 +79,9 @@ Este projeto é um catálogo de games desenvolvido em Laravel, com upload e exib
 ## Observações
 
 - As imagens dos games são salvas em `storage/app/public/games` e acessadas via `public/storage/games`.
-- O upload e exibição das imagens está padronizado em todas as views.
+- A exibição das imagens está padronizado em todas as views.
 - O banco de dados padrão é PostgreSQL, mas pode ser adaptado para outros.
-- O diretório principal do projeto agora se chama `catalogo` (ajuste caminhos e volumes se necessário).
+- O diretório principal do projeto agora se chama `laravel` (ajuste caminhos e volumes se necessário).
 - Se mudar o nome da pasta, atualize os caminhos em `docker-compose.yml` e outros arquivos de configuração.
 - Para rodar comandos artisan, entre na pasta `laravel`.
 
