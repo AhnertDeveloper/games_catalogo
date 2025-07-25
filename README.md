@@ -60,19 +60,63 @@ Este projeto é um catálogo de games desenvolvido em Laravel, com upload e exib
 
 ## Utilizando com Docker
 
-1. Suba os containers:
+1. **Build e subida dos containers**
 
    ```bash
-   docker-compose up -d
+   docker-compose up -d --build
    ```
 
-2. Acesse o container do app para rodar comandos artisan, se necessário:
+2. **Acesse o container do app**
 
    ```bash
-   docker exec -it nome_do_container_app bash
+   docker exec -it laravel_app bash
+   ```
+
+3. **Instale as dependências do Laravel**
+
+   ```bash
+   composer install
+   ```
+
+4. **Copie o arquivo de ambiente**
+
+   ```bash
+   cp .env.example .env
+   ```
+
+5. **Gere a chave da aplicação**
+
+   ```bash
+   php artisan key:generate
+   ```
+
+6. **Rode as migrations**
+
+   ```bash
    php artisan migrate
+   ```
+
+7. **(Opcional) Crie o link simbólico do storage**
+
+   ```bash
    php artisan storage:link
    ```
+
+8. **Inicie o servidor Laravel manualmente (caso não esteja automático)**
+
+   ```bash
+   php artisan serve --host=0.0.0.0 --port=8000
+   ```
+
+   Acesse o sistema em: [http://localhost:8000](http://localhost:8000)
+
+---
+
+**Observações:**
+
+- Se quiser que o servidor inicie automaticamente ao subir o container, descomente a linha `command: ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]` no `docker-compose.yml`.
+- Sempre rode `composer install` dentro do container após subir, pois o volume sobrescreve a pasta vendor.
+- O arquivo `.env` é obrigatório para o Laravel funcionar.
 
 ## Acessando o Projeto
 
