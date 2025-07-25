@@ -18,8 +18,10 @@ RUN sed -i 's/deb.debian.org/archive.debian.org/g' /etc/apt/sources.list \
 # Instala Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-WORKDIR /var/www
+WORKDIR /var/www/laravel
+
+# Instala dependências do Composer
+RUN composer install
 
 # Permissões
 RUN chown -R www-data:www-data /var/www
-
