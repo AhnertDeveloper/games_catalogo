@@ -1,0 +1,8 @@
+laravel/public/storage
+.idea/
+node_modules/
+vendor/
+.env
+.env.*
+*.log
+
