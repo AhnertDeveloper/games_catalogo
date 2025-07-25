@@ -20,8 +20,8 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/laravel
 
-# Copia os arquivos do projeto para dentro do container
-COPY . .
+# Copia os arquivos do projeto Laravel para dentro do container
+COPY laravel/. .
 
 # Instala dependências do Composer
 RUN composer install
